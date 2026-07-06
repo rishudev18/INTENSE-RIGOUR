@@ -6,6 +6,8 @@ import TrainingSection from "../components/TrainingSection";
 import InsideSection from "../components/InsideSection";
 import StorySection from "../components/StorySection";
 import TrainersSection from "../components/TrainersSection";
+import BecomeMemberCTA from "../components/BecomeMemberCTA";
+import Footer from "../components/Footer";
 
 const brand = "INTENSE RIGOUR";
 const city = "Gurugram"; // Assumed from context, or can be left as placeholder
@@ -250,27 +252,11 @@ export default function Home() {
 
       <StorySection />
 
-      <section id="membership" data-reveal className="membership-note">
-        <p>Membership is shaped around the club you use, the way you train, and the support you want around it.</p>
-        <TextLink href="/membership">Membership enquiries</TextLink>
-      </section>
 
-      <footer id="contact">
-        <div className="footer-inner">
-          <a href="#top" className="font-display text-2xl">{brand}</a>
-          <div className="footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Accessibility</a>
-            <a href="#">Contact</a>
-          </div>
-          <div className="social-links" aria-label="Social links">
-            <a href="#" aria-label="Instagram">Ig</a>
-            <a href="#" aria-label="LinkedIn">In</a>
-            <a href="#" aria-label="YouTube">Yt</a>
-          </div>
-        </div>
-      </footer>
+
+      <BecomeMemberCTA />
+
+      <Footer />
     </main>
   );
 }

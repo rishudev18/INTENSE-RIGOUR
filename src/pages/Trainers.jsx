@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ChevronDown, Search, ArrowRight, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
+import EnquireToday from "../components/EnquireToday";
 import { motion, AnimatePresence } from "framer-motion";
 
 const BIO_TEMPLATES = [
@@ -183,25 +184,7 @@ export default function Trainers() {
 
       <section className="w-full pt-28 flex-1">
         
-        {/* Filtering Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-6 md:px-12 py-6 border-b border-white/10 gap-6">
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-[#1a1a1a] hover:bg-[#222] transition-colors text-white/80 text-[10px] md:text-[11px] font-bold tracking-widest px-5 py-2.5 rounded-full flex items-center gap-2 uppercase">
-              Location <ChevronDown className="w-3.5 h-3.5" />
-            </button>
-            <button className="bg-[#1a1a1a] hover:bg-[#222] transition-colors text-white/80 text-[10px] md:text-[11px] font-bold tracking-widest px-5 py-2.5 rounded-full flex items-center gap-2 uppercase">
-              Expertise <ChevronDown className="w-3.5 h-3.5" />
-            </button>
-            <button className="bg-[#1a1a1a] hover:bg-[#222] transition-colors text-white/80 text-[10px] md:text-[11px] font-bold tracking-widest px-5 py-2.5 rounded-full flex items-center gap-2 uppercase">
-              Training Tier <ChevronDown className="w-3.5 h-3.5" />
-            </button>
-          </div>
-          
-          <button className="text-white flex items-center gap-2 text-sm font-bold tracking-wide hover:text-white/70 transition-colors">
-            <Search className="w-5 h-5" /> 
-            Search
-          </button>
-        </div>
+
 
         {/* Grid of Cards - 4 columns, 5 rows = 20 total */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 md:gap-y-16 px-6 md:px-12 py-10 pb-32">
@@ -262,6 +245,8 @@ export default function Trainers() {
           />
         )}
       </AnimatePresence>
+
+      <EnquireToday />
 
       <Footer />
     </main>

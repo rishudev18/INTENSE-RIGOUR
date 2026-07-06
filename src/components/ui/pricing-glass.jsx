@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 const NOISE_PATTERN = 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")';
 
-function PricingCard({ tier, isAnnual }) {
+function PricingCard({ tier }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -82,14 +82,14 @@ function PricingCard({ tier, isAnnual }) {
           <div className="h-[60px] overflow-hidden flex items-center">
              <AnimatePresence mode="popLayout">
                <motion.span
-                 key={isAnnual ? tier.priceAnnual : tier.priceMonthly}
+                 key={tier.price}
                  initial={{ y: 40, opacity: 0, filter: "blur(4px)" }}
                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                  exit={{ y: -40, opacity: 0, filter: "blur(4px)" }}
                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                  className="block text-[60px] font-bold text-white tracking-tighter leading-none"
                >
-                 {isAnnual ? tier.priceAnnual : tier.priceMonthly}
+                 {tier.price}
                </motion.span>
              </AnimatePresence>
           </div>
@@ -129,10 +129,11 @@ function PricingCard({ tier, isAnnual }) {
 export function PricingGlass({ 
   title = "One destination. Three ways to train.", 
   description = "Every membership is designed to help you train with confidence, consistency, and expert guidance.",
-  tiers,
+  gymTiers,
+  ptTiers,
   className
 }) {
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [activeTab, setActiveTab] = useState("gym");
 
   const legoVariant = {
     hidden: { opacity: 0, y: 20, scale: 0.8 },
@@ -153,7 +154,7 @@ export function PricingGlass({
       
       <motion.div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none z-0"
-        animate={{ scale: isAnnual ? 1.05 : 1, opacity: isAnnual ? 0.08 : 0.05 }}
+        animate={{ scale: activeTab === "pt" ? 1.05 : 1, opacity: activeTab === "pt" ? 0.08 : 0.05 }}
         transition={{ duration: 1 }}
       />
 
@@ -167,31 +168,48 @@ export function PricingGlass({
 
         <motion.div variants={legoVariant} className="relative p-1.5 rounded-full bg-white/5 backdrop-blur-3xl border border-white/10 shadow-[inset_0_1px_4px_rgba(0,0,0,0.5)] flex items-center">
           <button 
-            onClick={() => setIsAnnual(false)}
-            className={`relative px-6 md:px-8 py-3 rounded-full text-sm uppercase tracking-wide font-semibold transition-colors duration-300 z-10 ${!isAnnual ? "text-bone" : "text-white/50 hover:text-white/80"}`}
+            onClick={() => setActiveTab("gym")}
+            className={`relative px-6 md:px-8 py-3 rounded-full text-sm uppercase tracking-wide font-semibold transition-colors duration-300 z-10 ${activeTab === "gym" ? "text-bone" : "text-white/50 hover:text-white/80"}`}
           >
-            Quarterly
+            Gym Membership
           </button>
           <button 
-            onClick={() => setIsAnnual(true)}
-            className={`relative px-6 md:px-8 py-3 rounded-full text-sm uppercase tracking-wide font-semibold transition-colors duration-300 z-10 ${isAnnual ? "text-bone" : "text-white/50 hover:text-white/80"}`}
+            onClick={() => setActiveTab("pt")}
+            className={`relative px-6 md:px-8 py-3 rounded-full text-sm uppercase tracking-wide font-semibold transition-colors duration-300 z-10 ${activeTab === "pt" ? "text-bone" : "text-white/50 hover:text-white/80"}`}
           >
-            Annually
-            <span className="absolute -top-3 -right-3 md:-right-6 px-3 py-1 bg-[#b89b64] text-black text-[10px] font-bold rounded-full tracking-wider shadow-lg">BEST VALUE</span>
+            Personal Training
           </button>
 
           <motion.div 
             className="absolute left-1.5 top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full bg-white/10 border border-white/20 shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
-            animate={{ x: isAnnual ? "100%" : "0%" }}
+            animate={{ x: activeTab === "pt" ? "100%" : "0%" }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           />
         </motion.div>
       </div>
 
       <div className="relative w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch z-20">
-        {tiers.map((tier) => (
-          <PricingCard key={tier.name} tier={tier} isAnnual={isAnnual} />
-        ))}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0, 
+                transition: { duration: 0.3, staggerChildren: 0.15 } 
+              }
+            }}
+            className="col-span-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          >
+            {(activeTab === "gym" ? gymTiers : ptTiers).map((tier) => (
+              <PricingCard key={tier.name} tier={tier} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
     </motion.div>
