@@ -258,7 +258,7 @@ export default function Contact() {
                         </div>
                       </div>
 
-                      <button type="submit" className="w-full bg-[#b89b64] text-[#050505] font-sans font-bold text-sm uppercase tracking-wider py-4 rounded-xl flex items-center justify-between px-8 hover:bg-[#d4be8a] active:scale-[0.98] hover:shadow-[0_0_20px_rgba(184,155,100,0.3)] transition-all duration-200 group">
+                      <button type="submit" className="w-full bg-[#b89b64] text-[#050505] font-sans font-bold text-base font-semibold tracking-normal py-4 rounded-xl flex items-center justify-between px-8 hover:bg-[#d4be8a] active:scale-[0.98] hover:shadow-[0_0_20px_rgba(184,155,100,0.3)] transition-all duration-200 group">
                         <span>Continue</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                       </button>
@@ -343,7 +343,7 @@ export default function Contact() {
                         >
                           <ArrowLeft className="w-5 h-5 text-bone/70 group-hover:text-bone group-hover:-translate-x-1 transition-all" />
                         </button>
-                        <button type="submit" className="flex-1 bg-[#b89b64] text-[#050505] font-sans font-bold text-sm uppercase tracking-wider py-4 rounded-xl flex items-center justify-center hover:bg-[#d4be8a] active:scale-[0.98] hover:shadow-[0_0_20px_rgba(184,155,100,0.3)] transition-all duration-200">
+                        <button type="submit" className="flex-1 bg-[#b89b64] text-[#050505] font-sans font-bold text-base font-semibold tracking-normal py-4 rounded-xl flex items-center justify-center hover:bg-[#d4be8a] active:scale-[0.98] hover:shadow-[0_0_20px_rgba(184,155,100,0.3)] transition-all duration-200">
                           Submit Application
                         </button>
                       </div>
@@ -355,7 +355,7 @@ export default function Contact() {
               {/* WhatsApp CTA */}
               <div className="mt-8 pt-6 border-t border-white/5 flex flex-col items-center justify-center gap-3">
                 <p className="font-sans text-[11px] text-bone/50 uppercase tracking-widest font-bold">Need an instant response?</p>
-                <a href="#" className="flex items-center gap-2 text-[#25D366] hover:text-[#20b852] transition-colors font-sans text-sm font-bold group">
+                <a href="#" className="flex items-center gap-2 text-[#25D366] hover:text-[#20b852] transition-colors font-sans text-base font-semibold font-bold group">
                   <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>Chat on WhatsApp</span>
                 </a>

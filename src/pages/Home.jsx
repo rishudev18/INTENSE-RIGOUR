@@ -8,6 +8,7 @@ import StorySection from "../components/StorySection";
 import TrainersSection from "../components/TrainersSection";
 import BecomeMemberCTA from "../components/BecomeMemberCTA";
 import Footer from "../components/Footer";
+import { Reveal } from "../components/ui";
 
 const brand = "INTENSE RIGOUR";
 const city = "Gurugram"; // Assumed from context, or can be left as placeholder
@@ -210,17 +211,55 @@ export default function Home() {
         <div className="hero-shade" />
         <div className="hero-content" data-reveal>
           <h1>
-            Training
-            <span>for life</span>
+            Train
+            <span>with purpose</span>
           </h1>
+          <p className="mt-6 text-lg md:text-xl text-secondary max-w-2xl font-body leading-relaxed drop-shadow-md">
+            Elite coaching, premium facilities, and a community built for long-term strength and performance.
+          </p>
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
             <a 
               href="/membership" 
-              className="border border-white/20 text-bone px-10 py-4 md:py-5 rounded-full font-sans text-xs md:text-sm tracking-wide uppercase font-semibold hover:border-bone hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 inline-flex items-center gap-3 group cursor-pointer"
+              className="border border-white/20 text-bone px-10 py-4 md:py-5 rounded-full font-sans text-base font-semibold md:text-sm tracking-normal hover:border-bone hover:bg-white/10 transition-all duration-300 inline-flex items-center gap-3 group cursor-pointer"
             >
-              <span>Discover Membership</span>
+              <span>Book a Free Trial</span>
               <span className="transform transition-transform duration-300 group-hover:translate-x-1.5 font-light">→</span>
             </a>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 md:flex md:flex-row items-center gap-6 md:gap-10">
+            {/* Stat 1 */}
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1.5 text-white font-medium text-sm md:text-base">
+                <span className="text-yellow-500/90 text-[10px] md:text-xs tracking-widest">★★★★★</span>
+                4.9
+              </div>
+              <span className="text-[10px] md:text-xs text-muted uppercase tracking-[0.15em] mt-1">Google Rating</span>
+            </div>
+            
+            <div className="hidden md:block w-px h-8 bg-white/10" />
+            
+            {/* Stat 2 */}
+            <div className="flex flex-col">
+              <span className="text-white font-medium text-sm md:text-base">20+</span>
+              <span className="text-[10px] md:text-xs text-muted uppercase tracking-[0.15em] mt-1">Expert Coaches</span>
+            </div>
+
+            <div className="hidden md:block w-px h-8 bg-white/10" />
+
+            {/* Stat 3 */}
+            <div className="flex flex-col">
+              <span className="text-white font-medium text-sm md:text-base">500+</span>
+              <span className="text-[10px] md:text-xs text-muted uppercase tracking-[0.15em] mt-1">Active Members</span>
+            </div>
+
+            <div className="hidden md:block w-px h-8 bg-white/10" />
+
+            {/* Stat 4 */}
+            <div className="flex flex-col">
+              <span className="text-white font-medium text-sm md:text-base">2018</span>
+              <span className="text-[10px] md:text-xs text-muted uppercase tracking-[0.15em] mt-1">Established</span>
+            </div>
           </div>
         </div>
 
@@ -238,11 +277,31 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="about" data-reveal className="intro-section">
-        <p>
-          Built for people who already train, {brand} brings serious coaching,
-          thoughtful spaces, and calm service into one club experience in {city}.
-        </p>
+      <section id="about" className="w-full bg-background py-36 md:py-[180px] relative overflow-hidden border-y border-white/10">
+        {/* Subtle Watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5 select-none">
+          <span className="font-['Sora'] font-bold text-[350px] md:text-[500px] leading-none tracking-tighter text-white">IR</span>
+        </div>
+
+        <div className="max-w-[900px] mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+          <Reveal delay={0.1} y={0}>
+            <span className="text-[10px] md:text-xs font-['Manrope'] font-bold uppercase tracking-[0.25em] text-[#EF4444] mb-8 block">
+              The Intense Rigour Standard
+            </span>
+          </Reveal>
+          
+          <Reveal delay={0.3} y={20}>
+            <h2 className="font-['Sora'] text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white mb-12 md:mb-14 tracking-tight">
+              We don't build facilities. <br className="hidden md:block"/> We build people.
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.5} y={0}>
+            <p className="font-['Manrope'] text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
+              Every coach, every program, and every square foot of Intense Rigour is designed to help committed people become stronger, healthier, and more disciplined.
+            </p>
+          </Reveal>
+        </div>
       </section>
 
       <TrainingSection />

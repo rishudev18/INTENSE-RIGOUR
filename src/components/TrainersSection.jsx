@@ -165,10 +165,8 @@ function TrainerModal({ trainer, onClose }) {
           {/* CTA Area */}
           <div className="mt-12 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between border-t border-white/10 shrink-0 gap-6">
             <div className="flex items-center gap-4 text-white/30 font-sans text-[0.6rem] font-bold tracking-[0.2em] uppercase">
-              <span className="w-8 h-px bg-white/10"></span>
-              INTENSE RIGOUR
-            </div>
-            <button className="bg-white text-black px-8 py-4 rounded-full font-sans text-xs md:text-sm font-semibold tracking-wide uppercase hover:bg-white/90 hover:scale-[1.02] transition-all w-full md:w-auto">
+              <span className="w-8 h-px bg-white/10"></span>Intense Rigour</div>
+            <button className="bg-white text-black px-8 py-4 rounded-full font-sans text-base font-semibold md:text-sm font-semibold tracking-normal hover:bg-white/90 hover:scale-[1.02] transition-all w-full md:w-auto">
               Book a Session
             </button>
           </div>
@@ -384,7 +382,7 @@ export default function TrainersSection() {
           </p>
           <a 
             href="/trainers" 
-            className="group flex items-center gap-3 bg-white border border-[#111]/10 text-[#111] px-8 py-4 rounded-full font-sans text-xs md:text-sm font-bold tracking-widest uppercase shadow-sm hover:shadow-md hover:bg-[#111] hover:text-white transition-all duration-300"
+            className="group flex items-center gap-3 bg-white border border-[#111]/10 text-[#111] px-8 py-4 rounded-full font-sans text-base font-semibold md:text-sm font-bold tracking-normal shadow-sm hover:shadow-md hover:bg-[#111] hover:text-white transition-all duration-300"
           >
             <span>View All Trainers</span>
             <span className="transform transition-transform duration-300 group-hover:translate-x-1.5 font-light">→</span>

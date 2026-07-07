@@ -1,7 +1,7 @@
 export const trainingData = [
   {
     indexNumber: "01",
-    title: "Strength Zone",
+    title: "Build Strength",
     category: "Performance",
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=82",
     link: "/strength",
@@ -9,7 +9,7 @@ export const trainingData = [
   },
   {
     indexNumber: "02",
-    title: "Elite Facilities",
+    title: "Train Without Limits",
     category: "Facilities",
     image: "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=800&q=82",
     link: "/facilities",
@@ -17,27 +17,27 @@ export const trainingData = [
   },
   {
     indexNumber: "03",
-    title: "Personal Coaching",
+    title: "Guided By Experts",
     category: "Coaching",
     image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=82",
     link: "/coaching",
-    description: "One-on-one guidance tailored to your goals, technique, and long-term progress."
+    description: "One-on-one tailored coaching to help you smash personal records."
   },
   {
     indexNumber: "04",
-    title: "Recovery Lounge",
-    category: "Wellness",
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=82",
+    title: "Recover Better",
+    category: "Recovery",
+    image: "https://images.unsplash.com/photo-1519505907962-0a6cb0164c73?auto=format&fit=crop&w=800&q=82",
     link: "/recovery",
-    description: "Recover smarter with mobility areas, stretching zones, and wellness amenities."
+    description: "Ice baths, saunas, and mobility tools for optimal post-workout recovery."
   },
   {
     indexNumber: "05",
-    title: "Recovery Café",
-    category: "Nutrition",
+    title: "Refuel & Recover",
+    category: "Cafe",
     image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=82",
     link: "/cafe",
-    description: "Fresh espresso, protein coffee, and post-workout nutrition prepared in-house.",
+    description: "Fresh coffee, protein drinks, and healthy meals made in-house.",
     ctaText: "Explore Café"
   }
 ];

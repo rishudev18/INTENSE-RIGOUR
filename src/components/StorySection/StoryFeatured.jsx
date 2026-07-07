@@ -40,17 +40,6 @@ export default function StoryFeatured({ story, onOpenModal, activeIndex, stories
   return (
     <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
       
-      {/* SVG Defs for Clip Path */}
-      <svg className="absolute -top-[999px] -left-[999px] w-0 h-0">
-        <defs>
-          <clipPath id="clip-top-left" clipPathUnits="objectBoundingBox">
-            <path
-              d="M1 0.0417599 C1 0.0186966 0.9749279 0 0.944 0 H0.3895 C0.358572 0 0.3335 0.0186965 0.3335 0.0417599 V0.148024 C0.3335 0.171087 0.308428 0.189784 0.2775 0.189784 H0.056 C0.025072 0.189784 0 0.20848 0 0.231544 V0.95824 C0 0.981303 0.025072 1 0.056 1 H0.944 C0.9749279 1 1 0.981303 1 0.95824 V0.0417599 Z"
-            />
-          </clipPath>
-        </defs>
-      </svg>
-
       {/* LEFT SIDE: Cinematic Video Thumbnail (60%) */}
       <div className="w-full lg:w-3/5">
         <AnimatePresence mode="wait">
@@ -60,50 +49,56 @@ export default function StoryFeatured({ story, onOpenModal, activeIndex, stories
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.03 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full aspect-[4/5] md:aspect-[16/10] lg:aspect-[5/4] xl:aspect-[4/3] cursor-pointer"
+            className="relative w-full aspect-[4/5] md:aspect-[16/10] lg:aspect-[5/4] xl:aspect-[4/3] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group cursor-pointer bg-black ring-1 ring-inset ring-white/10 shadow-2xl"
             onClick={onOpenModal}
           >
-            {/* Clipped Image Container */}
-            <div 
-              className="absolute inset-0 w-full h-full group overflow-hidden bg-black"
-              style={{ clipPath: 'url(#clip-top-left)' }}
-            >
-              {/* Image with zoom on hover */}
-              <motion.img 
-                src={story.thumbnail}
-                alt={story.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
-                style={{ filter: 'grayscale(20%) contrast(1.1)' }}
-              />
+            {/* Image with zoom on hover */}
+            <motion.img 
+              src={story.thumbnail}
+              alt={story.name}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
+              style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+            />
+            
+            {/* Cinematic Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
+            
+            {/* Cutout Top Left */}
+            <div className="absolute top-0 left-0 bg-[#090909] rounded-br-[1.5rem] md:rounded-br-[2rem] p-4 md:p-5 pr-6 pb-6 z-10 transition-colors duration-500 hidden sm:flex flex-col justify-center items-start">
+              <h3 className="text-white font-serif text-sm md:text-base lg:text-lg xl:text-xl leading-[1.25] max-w-[200px] lg:max-w-[240px]">
+                Hear from our members who changed their lives.
+              </h3>
               
-              {/* Cinematic Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
-              
-              {/* Premium Frosted Glass Play Button (Center) */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                <div className="flex flex-col items-center gap-4 transition-transform duration-500 group-hover:scale-105">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-xl border border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.1)] rounded-full flex items-center justify-center transition-all duration-500 ease-out group-hover:bg-white/20 group-hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] group-hover:border-white/50">
-                    <Play className="text-white w-8 h-8 md:w-10 md:h-10 ml-2" fill="currentColor" />
-                  </div>
-                  {/* Hover Pill - Optional but nice context */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/60 backdrop-blur-sm px-6 py-3 rounded-full flex items-center gap-3 border border-white/10">
-                    <span className="text-white font-serif text-sm md:text-base">{story.name.split(' ')[0]}</span>
-                    <span className="w-1 h-1 rounded-full bg-white/30" />
-                    <span className="text-white/80 font-sans text-xs tracking-wider uppercase">{story.transformation}</span>
-                    <span className="w-1 h-1 rounded-full bg-white/30" />
-                    <span className="text-white/80 font-sans text-xs tracking-wider uppercase">{story.duration}</span>
-                  </div>
-                </div>
-              </div>
+              {/* Inverted Corner Top Right */}
+              <svg className="absolute top-0 -right-5 md:-right-6 w-5 h-5 md:w-6 md:h-6 text-[#090909]" viewBox="0 0 20 20" fill="currentColor" preserveAspectRatio="none">
+                <path d="M0 0H20C8.95431 0 0 8.95431 0 20V0Z" />
+              </svg>
+              {/* Inverted Corner Bottom Left */}
+              <svg className="absolute -bottom-5 md:-bottom-6 left-0 w-5 h-5 md:w-6 md:h-6 text-[#090909]" viewBox="0 0 20 20" fill="currentColor" preserveAspectRatio="none">
+                <path d="M0 0H20C8.95431 0 0 8.95431 0 20V0Z" />
+              </svg>
             </div>
 
-            {/* NEW: Floating CineVine-Style Badge positioned in the cutout space (Top Left) */}
-            <div className="absolute top-0 left-0 w-[33%] h-[23%] flex flex-col justify-center items-start pl-3 pt-3 md:pl-5 md:pt-4 z-20 overflow-hidden">
-              <h3 className="text-white font-serif text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-[1.25]">
+            {/* Mobile Title (hidden on sm+) */}
+            <div className="absolute top-4 left-4 z-10 sm:hidden">
+              <h3 className="text-base font-serif text-white leading-snug max-w-[180px] drop-shadow-md">
                 Hear from our members who changed their lives.
               </h3>
             </div>
 
+            {/* Premium Frosted Glass Play Button (Center) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4 transition-transform duration-500 group-hover:scale-105 z-10">
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-xl border border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.1)] rounded-full flex items-center justify-center transition-all duration-500 ease-out group-hover:bg-white/20 group-hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] group-hover:border-white/50">
+                <Play className="text-white w-8 h-8 md:w-10 md:h-10 ml-2" fill="currentColor" />
+              </div>
+              {/* Hover Pill */}
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/60 backdrop-blur-sm px-6 py-3 rounded-full flex items-center gap-3 border border-white/10">
+                <span className="text-white font-serif text-sm md:text-base">{story.name.split(' ')[0]}</span>
+                <span className="w-1 h-1 rounded-full bg-white/30" />
+                <span className="text-white/80 font-sans text-xs tracking-wider uppercase">{story.transformation}</span>
+              </div>
+            </div>
+            
           </motion.div>
         </AnimatePresence>
       </div>
@@ -166,7 +161,7 @@ export default function StoryFeatured({ story, onOpenModal, activeIndex, stories
             >
               <button 
                 onClick={onOpenModal}
-                className="bg-[#F2E9DC] text-[#090909] px-8 py-4 rounded-full font-sans text-xs tracking-[0.15em] uppercase font-bold hover:bg-white transition-colors flex items-center gap-3 group w-max"
+                className="bg-[#F2E9DC] text-[#090909] px-8 py-4 rounded-full font-sans text-base font-semibold tracking-[0.15em] font-bold hover:bg-white transition-colors flex items-center gap-3 group w-max"
               >
                 Watch Story
                 <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>

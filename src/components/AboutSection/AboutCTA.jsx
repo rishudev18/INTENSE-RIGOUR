@@ -30,7 +30,7 @@ export default function AboutCTA() {
           </p>
           <Link 
             to="/membership" 
-            className="inline-block border border-white/30 px-12 py-5 text-sm md:text-base uppercase tracking-[0.2em] font-sans font-medium hover:bg-white hover:text-black transition-colors duration-500"
+            className="inline-block border border-white/30 px-12 py-5 text-base font-semibold md:text-base tracking-[0.2em] font-sans font-medium hover:bg-white hover:text-black transition-colors duration-500"
           >
             Book A Trial
           </Link>

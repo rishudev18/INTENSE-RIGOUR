@@ -113,7 +113,7 @@ function TrainerDrawer({ trainer, onClose }) {
           
           <div className="absolute bottom-6 left-8 right-8 flex justify-between items-end gap-4">
              <h2 className="text-3xl md:text-5xl text-white font-serif">{trainer.name}</h2>
-             <button className="bg-white text-black text-[9px] md:text-[10px] font-bold uppercase tracking-widest px-5 py-3 md:px-6 md:py-3.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap shrink-0">
+             <button className="bg-white text-black text-base font-semibold md:text-[10px] font-bold tracking-normal px-5 py-3 md:px-6 md:py-3.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap shrink-0">
                Get In Touch
              </button>
           </div>
@@ -158,8 +158,8 @@ function TrainerDrawer({ trainer, onClose }) {
                className="w-full h-full object-cover filter brightness-75 group-hover:scale-105 transition-transform duration-700"
              />
              <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-6">
-               <h3 className="text-white font-serif text-3xl md:text-4xl mb-6 font-light">Training for life</h3>
-               <button className="bg-white text-black text-[10px] md:text-[11px] font-bold uppercase tracking-widest px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
+               <h3 className="text-white font-serif text-3xl md:text-4xl mb-6 font-light">Train with purpose</h3>
+               <button className="bg-white text-black text-base font-semibold md:text-[11px] font-bold tracking-normal px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
                  Get In Touch
                </button>
              </div>

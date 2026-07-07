@@ -1,4 +1,5 @@
 import React from "react";
+import { Reveal, Button } from "./ui";
 
 export default function BecomeMemberCTA() {
   return (
@@ -17,16 +18,21 @@ export default function BecomeMemberCTA() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-          <h2 className="font-serif text-[48px] md:text-[64px] lg:text-[80px] leading-tight text-white mb-8 tracking-wide drop-shadow-lg">
-            Become a member
-          </h2>
+          <Reveal>
+            <h2 className="font-heading text-[48px] md:text-[64px] lg:text-[80px] leading-tight text-primary mb-8 tracking-wide drop-shadow-lg">
+              Become a member
+            </h2>
+          </Reveal>
           
-          <a 
-            href="/membership" 
-            className="bg-white text-black px-8 py-3.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] hover:scale-105 hover:bg-gray-100 transition-all duration-300 shadow-xl inline-block"
-          >
-            Find Out More
-          </a>
+          <Reveal delay={0.1}>
+            <Button 
+              variant="primary" 
+              size="lg"
+              onClick={() => window.location.href = "/membership"}
+            >
+              Find Out More
+            </Button>
+          </Reveal>
         </div>
       </div>
     </section>

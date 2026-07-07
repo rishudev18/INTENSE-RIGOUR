@@ -1,34 +1,28 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { Button, Reveal } from "./ui";
+import { motion } from "framer-motion";
 
 export default function MembershipCTA() {
   return (
     <section className="bg-[#000000] w-full min-h-[90vh] py-12 md:py-16 flex items-center text-white overflow-hidden">
-      <div className="max-w-[1440px] w-full mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="max-w-container w-full mx-auto px-container">
         <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20">
           
           {/* Left Column: Form */}
           <div className="lg:w-5/12 flex flex-col justify-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="text-4xl md:text-5xl lg:text-[48px] font-serif font-light leading-none mb-8 lg:mb-10 tracking-tight"
-            >
-              Enquire today
-            </motion.h2>
+            <Reveal>
+              <h2 className="text-4xl md:text-5xl lg:text-[48px] font-heading font-light leading-none mb-8 lg:mb-10 tracking-tight">
+                Enquire today
+              </h2>
+            </Reveal>
 
-            <motion.form 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="flex flex-col gap-5"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              
+            <Reveal delay={0.1}>
+              <form 
+                className="flex flex-col gap-5"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                
               {/* Input Group */}
               <div className="flex flex-col gap-1 border-b border-white/20 pb-1.5">
                 <label className="text-[9px] uppercase tracking-wider text-white/50 mb-0.5">Name*</label>
@@ -100,13 +94,14 @@ export default function MembershipCTA() {
 
               {/* Submit Button */}
               <div className="mt-4">
-                <button type="submit" className="bg-white text-black px-10 py-3 rounded-full font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold hover:bg-white/90 hover:scale-[1.02] transition-all duration-300">
+                <Button type="submit" variant="primary" size="lg" className="w-full">
                   Send
-                </button>
+                </Button>
               </div>
 
-            </motion.form>
-          </div>
+            </form>
+          </Reveal>
+        </div>
 
           {/* Right Column: Image */}
           <motion.div 

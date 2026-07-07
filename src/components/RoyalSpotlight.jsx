@@ -62,10 +62,10 @@ export default function RoyalSpotlight() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
               className="flex flex-wrap items-center gap-4"
             >
-              <button className="bg-bone text-ink px-8 py-4 rounded-full font-sans text-xs md:text-sm tracking-wide uppercase font-semibold hover:bg-white transition-colors">
+              <button className="bg-bone text-ink px-8 py-4 rounded-full font-sans text-base font-semibold md:text-sm tracking-normal font-semibold hover:bg-white transition-colors">
                 Book a Consultation
               </button>
-              <button className="border border-[rgba(238,232,220,0.3)] text-bone px-8 py-4 rounded-full font-sans text-xs md:text-sm tracking-wide uppercase font-semibold hover:border-bone hover:bg-[rgba(238,232,220,0.05)] transition-colors">
+              <button className="border border-[rgba(238,232,220,0.3)] text-bone px-8 py-4 rounded-full font-sans text-base font-semibold md:text-sm tracking-normal font-semibold hover:border-bone hover:bg-[rgba(238,232,220,0.05)] transition-colors">
                 Talk to a Trainer
               </button>
             </motion.div>

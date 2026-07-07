@@ -74,7 +74,7 @@ export default function EnquireToday() {
             <div className="mt-8">
               <button 
                 type="button" 
-                className="bg-white text-black px-10 py-3.5 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-gray-200 transition-colors"
+                className="bg-white text-black px-10 py-3.5 rounded-full text-base font-semibold font-bold tracking-[0.2em] hover:bg-gray-200 transition-colors"
               >
                 Send
               </button>

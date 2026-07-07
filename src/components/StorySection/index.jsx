@@ -43,7 +43,7 @@ export default function StorySection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#F2E9DC] font-sans text-[0.65rem] md:text-xs tracking-[0.2em] uppercase font-bold mb-6">
+            <p className="text-[#EF4444] font-sans text-[0.65rem] md:text-xs tracking-[0.2em] uppercase font-bold mb-6">
               Transformation Stories
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white">

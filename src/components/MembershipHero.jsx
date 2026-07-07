@@ -85,7 +85,7 @@ export default function MembershipHero() {
             {/* Dominant Primary Button */}
             <a 
               href="#plans" 
-              className="bg-bone text-ink px-8 py-4 rounded-full font-sans text-xs md:text-sm tracking-wide uppercase font-semibold hover:bg-white transition-colors flex items-center gap-2"
+              className="bg-bone text-ink px-8 py-4 rounded-full font-sans text-base font-semibold md:text-sm tracking-normal font-semibold hover:bg-white transition-colors flex items-center gap-2"
             >
               Explore Memberships
             </a>
@@ -93,7 +93,7 @@ export default function MembershipHero() {
             {/* Secondary Outline Button */}
             <a 
               href="#tour" 
-              className="border border-[rgba(238,232,220,0.3)] text-bone px-8 py-4 rounded-full font-sans text-xs md:text-sm tracking-wide uppercase font-semibold hover:border-bone hover:bg-[rgba(238,232,220,0.05)] transition-all flex items-center gap-2"
+              className="border border-[rgba(238,232,220,0.3)] text-bone px-8 py-4 rounded-full font-sans text-base font-semibold md:text-sm tracking-normal font-semibold hover:border-bone hover:bg-[rgba(238,232,220,0.05)] transition-all flex items-center gap-2"
             >
               Book a Club Tour
             </a>

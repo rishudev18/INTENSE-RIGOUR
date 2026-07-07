@@ -16,13 +16,13 @@ export default function TrainingCard({ training }) {
             loop
             muted
             playsInline
-            className="tc-media"
+            className="tc-media grayscale transition-all duration-500 group-hover:grayscale-0"
           />
         ) : (
           <img
             src={training.image}
             alt={training.title}
-            className="tc-media"
+            className="tc-media grayscale transition-all duration-500 group-hover:grayscale-0"
           />
         )}
       </div>
@@ -34,22 +34,25 @@ export default function TrainingCard({ training }) {
       
       </div> {/* End inner clipping wrapper */}
 
-      {/* Content block — pinned to bottom, flex-end layout */}
-      <div className="tc-content relative z-20 pointer-events-none">
+      {/* Content block — pinned to top and bottom, flex-between layout */}
+      <div className="tc-content relative z-20 pointer-events-none absolute inset-0 flex flex-col justify-between p-8">
         
-        {/* Hover content is placed ABOVE the title in the DOM */}
-        {training.description && (
-          <p className="tc-desc">{training.description}</p>
-        )}
-        
-        <a href={training.link} className="tc-cta pointer-events-auto" aria-label={`Explore ${training.title}`}>
-          <span>{training.ctaText || "Explore"}</span>
-          <span aria-hidden="true">→</span>
-        </a>
+        {/* Top Content: Description and Button */}
+        <div className="tc-top-content pointer-events-none flex flex-col items-start">
+          {training.description && (
+            <p className="tc-desc">{training.description}</p>
+          )}
+          
+          <a href={training.link} className="tc-cta pointer-events-auto" aria-label={`Explore ${training.title}`}>
+            <span>{training.ctaText || "EXPLORE"}</span>
+          </a>
+        </div>
 
-        {/* Title is completely anchored to the bottom */}
-        <div className="tc-title-wrapper">
-          <h3 className="tc-title">{training.title}</h3>
+        {/* Bottom Content: Title and Close Icon */}
+        <div className="tc-bottom-content w-full flex justify-between items-end">
+          <div className="tc-title-wrapper">
+            <h3 className="tc-title">{training.title}</h3>
+          </div>
         </div>
       </div>
     </GlowCard>

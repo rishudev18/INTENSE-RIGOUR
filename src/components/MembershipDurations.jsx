@@ -104,7 +104,7 @@ export default function MembershipDurations() {
 
               {/* Action Button */}
               <div>
-                <button className="bg-bone text-ink px-10 py-5 rounded-full font-sans text-sm tracking-wide uppercase font-semibold hover:bg-white transition-colors inline-flex items-center gap-4 group/btn">
+                <button className="bg-bone text-ink px-10 py-5 rounded-full font-sans text-base font-semibold tracking-normal font-semibold hover:bg-white transition-colors inline-flex items-center gap-4 group/btn">
                   <span>{plan.buttonText}</span>
                   <span className="transform transition-transform duration-300 group-hover/btn:translate-x-1.5">→</span>
                 </button>

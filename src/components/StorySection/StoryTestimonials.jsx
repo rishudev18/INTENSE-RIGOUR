@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Card, CardContent, CardDescription, CardCategory } from '../ui';
 
 const TEXT_REVIEWS = [
   {
@@ -73,22 +74,24 @@ const TestimonialsColumn = ({ className, testimonials, duration = 10 }) => {
         {[...new Array(2).fill(0).map((_, index) => (
           <React.Fragment key={index}>
             {testimonials.map(({ text, image, name, role }, i) => (
-              <div className="p-8 rounded-[24px] border border-white/5 bg-[#111111] max-w-[320px] w-full shadow-2xl transition-colors hover:border-white/20" key={i}>
-                <div className="text-white/80 font-sans text-sm leading-relaxed mb-8">"{text}"</div>
-                <div className="flex items-center gap-4">
-                  <img
-                    width={40}
-                    height={40}
-                    src={image}
-                    alt={name}
-                    className="h-12 w-12 rounded-full object-cover grayscale opacity-80"
-                  />
-                  <div className="flex flex-col">
-                    <div className="font-sans font-bold text-xs tracking-widest uppercase text-white">{name}</div>
-                    <div className="font-sans text-[10px] tracking-widest uppercase text-[#F2E9DC] opacity-70 mt-1">{role}</div>
+              <Card key={i} className="max-w-[320px] w-full">
+                <CardContent className="gap-6 h-full flex-col">
+                  <CardDescription className="italic">"{text}"</CardDescription>
+                  <div className="flex items-center gap-4 mt-auto pt-6">
+                    <img
+                      width={40}
+                      height={40}
+                      src={image}
+                      alt={name}
+                      className="h-12 w-12 rounded-full object-cover grayscale opacity-80"
+                    />
+                    <div className="flex flex-col">
+                      <div className="font-heading font-semibold text-[16px] text-primary">{name}</div>
+                      <CardCategory className="!text-[12px] !mb-0">{role}</CardCategory>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </React.Fragment>
         ))]}

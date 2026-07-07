@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Button } from './ui';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef(null);
   const mobileNavRef = useRef(null);
@@ -93,7 +95,7 @@ export default function Navbar() {
           <Link
             to="/"
             ref={logoRef}
-            className="font-display font-bold text-2xl tracking-wide text-bone uppercase flex-shrink-0 z-10"
+            className="font-display font-bold text-2xl tracking-normal text-bone flex-shrink-0 z-10"
           >
             Intense Rigour
           </Link>
@@ -137,22 +139,9 @@ export default function Navbar() {
 
           {/* CTA Button Desktop */}
           <div className="z-10" ref={ctaRef}>
-            <Link to="/membership">
-              <motion.div
-                className="bg-white text-black font-sans text-[11px] md:text-xs uppercase tracking-[0.1em] font-bold px-[24px] py-[12px] rounded-full flex items-center gap-2 transition-colors hover:bg-black hover:text-white"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.25 }}
-              >
-                Join Us
-                <motion.span
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  →
-                </motion.span>
-              </motion.div>
-            </Link>
+            <Button variant="primary" size="sm" onClick={() => navigate('/membership')}>
+              Join Us
+            </Button>
           </div>
         </nav>
 
@@ -164,23 +153,16 @@ export default function Navbar() {
           <Link
             to="/"
             ref={mobileLogoRef}
-            className="font-display font-bold text-lg tracking-wide text-bone uppercase flex-shrink-0"
+            className="font-display font-bold text-lg tracking-normal text-bone flex-shrink-0"
           >
             Intense Rigour
           </Link>
 
           {/* Right Side: Join Now & Hamburger */}
           <div className="flex items-center gap-4">
-            <Link to="/membership">
-              <motion.div
-                className="bg-white text-black font-sans text-[11px] uppercase tracking-[0.1em] font-bold px-[20px] py-[10px] rounded-full flex items-center gap-1 shadow-md transition-colors hover:bg-black hover:text-white"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.25 }}
-              >
-                Join Us
-              </motion.div>
-            </Link>
+            <Button variant="primary" size="sm" onClick={() => navigate('/membership')}>
+              Join Us
+            </Button>
 
             {/* Hamburger */}
             <button
@@ -232,17 +214,17 @@ export default function Navbar() {
                   </motion.div>
                 </Link>
               ))}
-              <Link to="/membership" onClick={() => setIsOpen(false)}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, delay: navLinks.length * 0.08, ease: 'easeOut' }}
-                  className="mt-6 border border-white/20 text-white font-sans text-sm uppercase tracking-[0.1em] font-medium px-8 py-4 rounded-full flex items-center gap-2 transition-colors hover:border-white/40 hover:bg-white/5"
-                >
-                  Get Membership →
-                </motion.div>
-              </Link>
+              <Button 
+                variant="primary" 
+                size="lg" 
+                className="mt-6"
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('/membership');
+                }}
+              >
+                Get Membership
+              </Button>
             </div>
           </motion.div>
         )}
